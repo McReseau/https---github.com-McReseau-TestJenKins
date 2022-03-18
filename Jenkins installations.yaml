@@ -1,0 +1,41 @@
+ 
+wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat/jenkins.repo 
+rpm --import https://pkg.jenkins.io/redhat/jenkins.io.key
+yum install java-1.8.0-openjdk-devel jenkins git
+ 
+systemctl enable jenkins
+systemctl start jenkins
+curl localhost:8080
+ 
+cat /var/lib/jenkins/secrets/initialAdminPassword
+
+
+#!/bin/bash
+echo "This is an example of a script"
+echo "This is running in a buid step"
+echo "This is a param $PASSED"
+
+
+---
+It works
+
+#!/bin/bash
+echo "This is an example of a script"
+echo "That is running in a build step"
+echo "This is a param $PASSED"
+NUM=$(($FIRSTNUMBER + $SECONDNUMBER))
+echo "$NUM"
+---
+#!/bin/bash
+echo "this script is from GitHub"
+NUMBER=$(($FIRSTNUMBER + $SECONDNUMBER))
+echo "$NUMBER"
+echo "this is complete"
+
+
+django-admin startproject essaipy
+cd essaipy
+
+python manage.py startapp essaipy
+
+python manage.py runserver
